@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import ReactStars from "react-stars";
+
 const MovieCard = ({ el }) => {
   return (
     <div className="screen-2">
@@ -40,8 +42,9 @@ const MovieCard = ({ el }) => {
           {" "}
           <ion-icon className="icon" name="play"></ion-icon>{" "}
         </span>
-        Play
+        <Link to={`/Trailer/${el.id}`}><button>play</button></Link>
       </div>
+      
     </div>
   );
 };

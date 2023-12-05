@@ -5,6 +5,8 @@ import { MovieData } from "./MovieData";
 import MovieList from "./MovieList";
 import AddMovie from "./AddMovie";
 import SearchMovie from "./SearchMovie";
+import { Route,Routes } from "react-router-dom";
+import Trailer from "./Trailer"
 export default function App() {
   const [movies, setMovies] = useState(MovieData);
   const [searchName, setSearchName] = useState("");
@@ -18,12 +20,16 @@ export default function App() {
         setSearchName={setSearchName}
         setSearchRating={setSearchRating}
       />
-      <MovieList
+    
+      <AddMovie addHandler={addHandler} />
+      <Routes>
+      <Route path="/" element={<MovieList 
         movies={movies}
         searchName={searchName}
-        searchRating={searchRating}
-      />
-      <AddMovie addHandler={addHandler} />
+        searchRating={searchRating}/>}/>
+        
+        <Route path='/Trailer/:id' element={<Trailer/>} />
+      </Routes>
     </div>
   );
 }
